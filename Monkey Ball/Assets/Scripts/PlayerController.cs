@@ -44,6 +44,14 @@ public class PlayerController : MonoBehaviour {
             count = count + 1;
             SetCountText();
         }
+        if (other.gameObject.CompareTag("OutOfBounds"))
+        {
+            SceneManager.LoadScene("menu");
+        }
+        if (other.gameObject.CompareTag("End") && count >= totalOfBananas)
+        {
+            SceneManager.LoadScene("menu");
+        }
     }
 
     void SetCountText()
