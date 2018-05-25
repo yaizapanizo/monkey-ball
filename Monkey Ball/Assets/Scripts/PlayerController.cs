@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -28,6 +29,11 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement * speed);
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,6 +52,7 @@ public class PlayerController : MonoBehaviour {
         if (count >= totalOfBananas)
         {
             winText.text = "You Win!";
+
         }
     }
 }
