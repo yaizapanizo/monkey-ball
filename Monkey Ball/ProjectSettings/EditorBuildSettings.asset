@@ -7,8 +7,14 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/menu.unity
-    guid: 14e10c7a2dcb9f4478e1f16dd9869461
+    guid: 27d69389e3dbbf1478e7f19284511e74
+  - enabled: 1
+    path: Assets/Scenes/menu_end.unity
+    guid: 643c8b024412fff4384cea4450c568ec
   - enabled: 1
     path: Assets/Scenes/Monkey_Ball.unity
     guid: e904c951ae3b63b41b665c53c2ee499a
+  - enabled: 1
+    path: Assets/Scenes/Monkey_Ball2.unity
+    guid: 1ca5d71806859c949a444f31fa566ae3
   m_configObjects: {}

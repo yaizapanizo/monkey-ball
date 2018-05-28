@@ -7,6 +7,8 @@ TagManager:
   - Pick Up
   - OutOfBounds
   - End
+  - Last_end
+  - Paused
   layers:
   - Default
   - TransparentFX
