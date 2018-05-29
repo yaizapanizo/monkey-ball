@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.9
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -37,14 +37,14 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45076632, g: 0.50070596, b: 0.5747827, a: 1}
+  m_Sun: {fileID: 962991423}
+  m_IndirectSpecularColor: {r: 0.45071667, g: 0.50066406, b: 0.5748667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 4a711059431a98d48805e32621c97636,
+  m_LightingDataAsset: {fileID: 112000002, guid: e257611473c9a5a46aee11f058b3dd5d,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -43759,7 +43759,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.9072327, b: 0.7216981, a: 0.22352941}
+  m_Color: {r: 1, g: 0.9072327, b: 0.7216981, a: 0.99215686}
   m_Intensity: 0.25
   m_Range: 10
   m_SpotAngle: 30
@@ -43792,13 +43792,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962991422}
-  m_LocalRotation: {x: 0.29271612, y: -0.24664864, z: 0.07843303, w: 0.92050534}
+  m_LocalRotation: {x: 0.29399776, y: -0.24512187, z: 0.0832254, w: 0.9200838}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 35.281002, y: -30.000002, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.578003, y: -29.632002, z: 0.63500005}
 --- !u!1 &1001172967
 GameObject:
   m_ObjectHideFlags: 0
@@ -54381,6 +54381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  mobileSpeed: 12
   countText: {fileID: 1803324713}
   winText: {fileID: 424653021}
   tickSource: {fileID: 0}

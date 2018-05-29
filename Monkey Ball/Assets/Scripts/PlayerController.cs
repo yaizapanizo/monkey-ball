@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed;
+    public float speed, mobileSpeed;
     public Text countText;
     public Text winText;
     public AudioSource tickSource;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     private int count;
     private int totalOfBananas = 12;
     private float jumpForce = 6f;
-    private float jumpForceTouch = 1f;
+    private float jumpForceTouch = 4.8f;
     private float cooldown = 0f;
 
     void Start()
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-            rb.AddForce(movement * speed);
+            rb.AddForce(movement * mobileSpeed);
         
         if (Input.GetKeyDown(KeyCode.Space) && cooldown == 0)
         {
