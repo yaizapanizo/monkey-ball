@@ -15,6 +15,11 @@ public class Pause : MonoBehaviour {
                 child.gameObject.SetActive(true);
             }
 
+            if (Input.touchCount == 2)
+            {
+                child.gameObject.SetActive(true);
+            }
+
         }
     }
     public void ContinueGame()

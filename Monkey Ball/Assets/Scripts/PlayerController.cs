@@ -16,19 +16,16 @@ public class PlayerController : MonoBehaviour {
     private int count;
     private int totalOfBananas = 12;
     private float jumpForce = 6f;
-    private GameObject paused;
-    
+    private float jumpForceTouch = 1f;
+    private float cooldown = 0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText();
         winText.text = "";
-        paused = GameObject.FindGameObjectWithTag("Paused");
-        Debug.Log(paused);
         scene = SceneManager.GetActiveScene();
-        Debug.Log(scene.name);
-
         tickSource = GetComponent<AudioSource>();
     }
 
@@ -38,20 +35,50 @@ public class PlayerController : MonoBehaviour {
         { 
             Time.timeScale = 0;
         }
+
+        if (Input.touchCount == 2)
+        {
+            Time.timeScale = 0;
+
+        }
     }
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rb.AddForce(movement * speed);
+            Input.gyro.enabled = true;
+            float initialOrientationX = Input.gyro.rotationRateUnbiased.x;
+            float initialOrientationY = Input.gyro.rotationRateUnbiased.y;
+            rb.AddForce(initialOrientationY * speed, 0.0f, -initialOrientationX * speed);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        { 
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+            rb.AddForce(movement * speed);
+        
+        if (Input.GetKeyDown(KeyCode.Space) && cooldown == 0)
+        {
+            cooldown = 1.5f;
             Vector3 jumpVector = new Vector3(0, jumpForce, 0);
             rb.AddForce(jumpVector, ForceMode.Impulse);
         }
+
+        if (Input.touchCount == 1 && cooldown == 0)
+        {
+            cooldown = 1.5f;
+            Vector3 jumpVector = new Vector3(0, jumpForceTouch, 0);
+            rb.AddForce(jumpVector, ForceMode.Impulse);
+        }
+
+        if ( cooldown > 0)
+        {
+            cooldown -= Time.deltaTime;
+        }
+
+        if (cooldown < 0)
+        {
+            cooldown = 0f;
+        }
+        
     }
 
     void OnTriggerEnter(Collider other)

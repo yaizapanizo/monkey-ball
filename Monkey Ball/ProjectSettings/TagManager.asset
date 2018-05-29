@@ -9,6 +9,7 @@ TagManager:
   - End
   - Last_end
   - Paused
+  - Music
   layers:
   - Default
   - TransparentFX
