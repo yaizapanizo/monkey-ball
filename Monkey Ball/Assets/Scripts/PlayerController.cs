@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
         scene = SceneManager.GetActiveScene();
         tickSource = GetComponent<AudioSource>();
         Input.gyro.enabled = true;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     void Update()
