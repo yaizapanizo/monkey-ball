@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+    public GameObject[] songs;
     private void Start()
     {
-        GameObject.FindGameObjectWithTag("Game_Music").GetComponent<Game_Music>().StopGameMusic();
+
+        songs = GameObject.FindGameObjectsWithTag("Game_Music");
         
+        foreach (GameObject Game_Music in songs)
+        {
+            GameObject.FindGameObjectWithTag("Game_Music").SetActive(false);
+        } 
     }
     public void play()
     {

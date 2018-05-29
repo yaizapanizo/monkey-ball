@@ -47,9 +47,9 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate()
     {
             
-            float initialOrientationX = Input.gyro.rotationRateUnbiased.x;
-            float initialOrientationY = Input.gyro.rotationRateUnbiased.y;
-            Vector3 mobileMovement = new Vector3(initialOrientationY, 0.0f, -initialOrientationX);
+            float initialOrientationX = Input.acceleration.x;
+            float initialOrientationZ = Input.acceleration.z;
+            Vector3 mobileMovement = new Vector3(initialOrientationX, 0.0f, -initialOrientationZ);
             rb.AddForce(mobileMovement * mobileSpeed);
 
             float moveHorizontal = Input.GetAxis("Horizontal");
