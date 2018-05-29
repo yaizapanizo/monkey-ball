@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public Text countText;
     public Text winText;
+    public AudioSource tickSource;
+    public AudioSource jumpSound;
 
     private Scene scene;
     private Rigidbody rb;
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(paused);
         scene = SceneManager.GetActiveScene();
         Debug.Log(scene.name);
+
+        tickSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Pick Up"))
         {
+            tickSource.Play(); //Banana Sound
             other.gameObject.SetActive(false);
             count = count + 1;
             SetCountText();
