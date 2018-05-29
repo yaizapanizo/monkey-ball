@@ -48,12 +48,13 @@ public class PlayerController : MonoBehaviour {
             Input.gyro.enabled = true;
             float initialOrientationX = Input.gyro.rotationRateUnbiased.x;
             float initialOrientationY = Input.gyro.rotationRateUnbiased.y;
-            rb.AddForce(initialOrientationY * speed, 0.0f, -initialOrientationX * speed);
+            Vector3 mobileMovement = new Vector3(initialOrientationY, 0.0f, initialOrientationX);
+            rb.AddForce(mobileMovement * mobileSpeed);
 
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-            rb.AddForce(movement * mobileSpeed);
+            rb.AddForce(movement * speed);
         
         if (Input.GetKeyDown(KeyCode.Space) && cooldown == 0)
         {
