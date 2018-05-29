@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
     public Text countText;
     public Text winText;
     public AudioSource tickSource;
-    public AudioSource jumpSound;
 
     private Scene scene;
     private Rigidbody rb;
