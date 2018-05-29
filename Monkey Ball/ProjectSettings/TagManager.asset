@@ -10,6 +10,7 @@ TagManager:
   - Last_end
   - Paused
   - Music
+  - Game_Music
   layers:
   - Default
   - TransparentFX

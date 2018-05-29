@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Music : MonoBehaviour {
+public class Game_Music : MonoBehaviour {
 
         private AudioSource _audioSource;
         private void Awake()
         {
+            DontDestroyOnLoad(transform.gameObject);
             _audioSource = GetComponent<AudioSource>();
         }
 
-        public void PlayMusic()
+        public void StopGameMusic()
         {
-            if (_audioSource.isPlaying) return;
-            _audioSource.Play();
+            _audioSource.Stop();
         }
     }

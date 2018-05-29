@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
         winText.text = "";
         scene = SceneManager.GetActiveScene();
         tickSource = GetComponent<AudioSource>();
+        Input.gyro.enabled = true;
     }
 
     void Update()
@@ -45,10 +46,10 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-            Input.gyro.enabled = true;
+            
             float initialOrientationX = Input.gyro.rotationRateUnbiased.x;
             float initialOrientationY = Input.gyro.rotationRateUnbiased.y;
-            Vector3 mobileMovement = new Vector3(initialOrientationY, 0.0f, initialOrientationX);
+            Vector3 mobileMovement = new Vector3(initialOrientationY, 0.0f, -initialOrientationX);
             rb.AddForce(mobileMovement * mobileSpeed);
 
             float moveHorizontal = Input.GetAxis("Horizontal");
